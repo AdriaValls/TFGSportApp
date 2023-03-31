@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">     
+        <ion-button (click)="goBack()"  fill="transparent">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-button>
+    </ion-buttons>   
+    <ion-title>Match Title</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button>      
+          <ion-avatar>
+            <ion-img src="../../../assets/img/pfp1.jpg"></ion-img>
+          </ion-avatar>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+  <ion-segment  [(ngModel)]="selectedTab" (ionChange)="segmentChanged($event)">
+
+    <ion-segment-button  value="info">
+      Info
+    </ion-segment-button>
+    <ion-segment-button  value="players">
+      Players
+    </ion-segment-button>
+
+    
+</ion-segment>
+
+<div class="profileTab" [ngClass]="{'hide': (selectedTab!='info')}">
+  <ion-card>
+    <ion-card-header >
+      <ion-card-title>City</ion-card-title>
+      <ion-card-title>1 nov 2023 16:30</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Description</p>
+    </ion-card-content>
+  </ion-card> 
+
+  <ion-card >
+    <ion-toolbar>  
+      <ion-card-header >
+        <ion-card-title>Created by:</ion-card-title>
+        <ion-card-subtitle>Username</ion-card-subtitle>
+      </ion-card-header>
+      <ion-buttons slot="primary">
+        <ion-button>      
+            <ion-avatar>
+              <ion-img src="../../../assets/img/pfp1.jpg"></ion-img>
+            </ion-avatar>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-card> 
+  
+
+  <ion-card>
+    <ion-toolbar>  
+      <ion-title>Direction</ion-title>
+      <ion-buttons slot="primary">
+        <ion-button> 
+          maps
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-card> 
+  
+</div>
+
+<div class="profileTab" [ngClass]="{'hide': (selectedTab!='players')}">
+  <ion-card>
+    <ion-card-header class="team1">
+      <ion-card-title>Team 1</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card>
+        <ion-list>
+          <ion-item button  *ngFor="let player of team1">
+            <ion-label>{{player}} </ion-label>                
+            <ion-avatar>
+              <ion-img src="../../../assets/img/pfp1.jpg"></ion-img>
+            </ion-avatar>     
+          </ion-item>
+        </ion-list>
+      </ion-card> 
+    </ion-card-content>
+  </ion-card> 
+
+  <ion-card>
+    <ion-card-header class="team2">
+      <ion-card-title>Team 2</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card>
+        <ion-list>
+          <ion-item button  *ngFor="let player of team2">
+            <ion-label>{{player}} </ion-label>
+            <ion-avatar>
+              <ion-img src="../../../assets/img/pfp1.jpg"></ion-img>
+            </ion-avatar>
+          </ion-item>
+        </ion-list>
+      </ion-card> 
+    </ion-card-content>
+  </ion-card> 
+
+</div>
+
+
+
+</ion-content>

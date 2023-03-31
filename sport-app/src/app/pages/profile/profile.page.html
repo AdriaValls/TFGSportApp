@@ -1,0 +1,52 @@
+<ion-header>
+    <app-header></app-header>
+</ion-header>
+
+<ion-content>
+    <div class="profileTop">
+        <p class="topUsername" >Username</p>  
+        <ion-avatar  >
+            <ion-img src="../../../assets/img/pfp1.jpg"></ion-img>
+        </ion-avatar>
+    </div>
+    
+    <div class="profileBio">
+        {{bio}}
+    </div>
+
+    <ion-segment  [(ngModel)]="selectedTab" (ionChange)="segmentChanged($event)">
+
+        <ion-segment-button  value="upcoming">
+           Upcoming
+        </ion-segment-button>
+        <ion-segment-button  value="history">
+            History
+         </ion-segment-button>
+         <ion-segment-button  value="settings">
+            Settings
+         </ion-segment-button>
+
+        
+    </ion-segment>
+
+    <div class="profileTab" [ngClass]="{'hide': (selectedTab!='upcoming')}">
+        <p>Upcoming matches:</p>
+        <app-match-card></app-match-card>
+        <app-match-card></app-match-card>
+        <app-match-card></app-match-card>
+        <app-match-card></app-match-card>
+
+    </div>
+
+    <div class="profileTab" [ngClass]="{'hide': (selectedTab!='history')}">
+        <p>Matches played:</p>
+        <app-match-card></app-match-card>
+        <app-match-card></app-match-card>
+        <app-match-card></app-match-card>
+        <app-match-card></app-match-card>
+    </div>
+    <div class="profileTab" [ngClass]="{'hide': (selectedTab!='settings')}">
+        settings {{selectedTab}}
+    </div>
+
+</ion-content>
